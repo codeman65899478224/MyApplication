@@ -25,6 +25,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
+ * 图片的三级缓存工具类
+ *
  * @author chenyy
  * @date 2020/8/6
  */
