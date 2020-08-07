@@ -2,6 +2,7 @@ package com.cyy.myapplication;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.cyy.pullrefresh.PullRefreshListView;
@@ -56,6 +58,24 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     10);
         }
+
+        final ImageView imageView = findViewById(R.id.image);
+        String url = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596794025422&di=2df4c3071f880762adb54fbfc5f91dd6&imgtype=0&src=http%3A%2F%2Ft8.baidu.com%2Fit%2Fu%3D1484500186%2C1503043093%26fm%3D79%26app%3D86%26f%3DJPEG%3Fw%3D1280%26h%3D853";
+        BitmapCacheUtil.getInstance().getBitmapFromCache(url, new BitmapCacheUtil.OnBitmapLoadFinishListener() {
+            @Override
+            public void onFinish(final boolean success, final Bitmap bitmap) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (success){
+                            imageView.setImageBitmap(bitmap);
+                        } else {
+                            imageView.setImageResource(R.mipmap.ic_launcher_round);
+                        }
+                    }
+                });
+            }
+        });
 
     }
 
