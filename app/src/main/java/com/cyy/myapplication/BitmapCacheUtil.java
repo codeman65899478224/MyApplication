@@ -60,7 +60,7 @@ public class BitmapCacheUtil {
         }
         File parent = new File(LOCAL_CACHE_PATH);
         parent.mkdirs();
-        String path = LOCAL_CACHE_PATH + MD5Util.string2MD5(url);
+        String path = LOCAL_CACHE_PATH + MD5Util.string2MD5(url) + ".jpg";
         File bitmapFile = new File(path);
         if (!bitmapFile.exists() || forceUpdate){
             addBitmap2LocalFile(bitmapFile, bitmap);
@@ -84,7 +84,7 @@ public class BitmapCacheUtil {
             listener.onFinish(true, bitmapLruCache.get(url));
             return;
         }
-        String path = LOCAL_CACHE_PATH + MD5Util.string2MD5(url);
+        String path = LOCAL_CACHE_PATH + MD5Util.string2MD5(url) + ".jpg";
         File bitmapFile = new File(path);
         if (bitmapFile.exists()) {
             try {

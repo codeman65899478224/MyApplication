@@ -67,7 +67,7 @@ public class PullRefreshListView extends LinearLayout implements View.OnTouchLis
 
     private void initView() {
         setOrientation(VERTICAL);
-        headerView = LayoutInflater.from(context).inflate(R.layout.header_layout, null, true);
+        headerView = LayoutInflater.from(context).inflate(R.layout.header_layout, this, true);
         addView(headerView);
         refreshTitle = headerView.findViewById(R.id.title);
     }

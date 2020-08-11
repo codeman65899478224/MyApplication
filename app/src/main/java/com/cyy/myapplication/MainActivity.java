@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-
+        //ConsumerProducer.process();
     }
 
     @Override
